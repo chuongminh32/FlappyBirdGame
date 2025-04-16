@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\NamII_HK2\\LTWD\\Flappybird\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 127,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAcwI8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T08:00:35.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs [Design]",
+              "RelativeToolTip": "MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T03:03:57.871Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
