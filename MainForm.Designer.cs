@@ -93,12 +93,12 @@ namespace Flappybird
             // 
             // panelEndgame
             // 
-            panelEndgame.BackColor = Color.PeachPuff;
+            panelEndgame.BackColor = Color.Moccasin;
             panelEndgame.Controls.Add(labelTotalScore);
             panelEndgame.Controls.Add(label2);
             panelEndgame.Controls.Add(btnExit);
             panelEndgame.Controls.Add(btnRestart);
-            panelEndgame.Location = new Point(185, 231);
+            panelEndgame.Location = new Point(234, 238);
             panelEndgame.Name = "panelEndgame";
             panelEndgame.Size = new Size(454, 149);
             panelEndgame.TabIndex = 14;
@@ -172,7 +172,7 @@ namespace Flappybird
             // 
             picBoxEndgame.BackColor = Color.Transparent;
             picBoxEndgame.Image = Properties.Resources.game_over1;
-            picBoxEndgame.Location = new Point(212, 142);
+            picBoxEndgame.Location = new Point(255, 142);
             picBoxEndgame.Name = "picBoxEndgame";
             picBoxEndgame.Size = new Size(411, 83);
             picBoxEndgame.TabIndex = 15;

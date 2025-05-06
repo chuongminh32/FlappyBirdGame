@@ -158,20 +158,30 @@ namespace Flappybird
             }
 
             // ====== KIỂM TRA VA CHẠM ======
-            Rectangle birdRect = bird.Bounds;
-            Rectangle pipeTop = new Rectangle(pipeX, 0, pipeWidth, pipeHeight);
-            Rectangle pipeBottom = new Rectangle(pipeX, pipeHeight + gap - 40, pipeWidth, this.Height - pipeHeight - gap);
-
             // Nếu chim đụng ống hoặc chạm đất
-            if (birdRect.IntersectsWith(pipeTop) || birdRect.IntersectsWith(pipeBottom) ||
-                bird.Bottom >= this.ClientSize.Height - 40)
-            {
-                gameTimer.Stop();            // Dừng game
-                panelEndgame.Visible = true; // Hiện panel endgame
-                picBoxEndgame.Visible = true; // Hiện hình ảnh endgame
-                labelTotalScore.Text = "Score : " + score; // Hiện điểm số cuối cùng
+            //if (birdRect.IntersectsWith(pipeTop) || birdRect.IntersectsWith(pipeBottom) ||
+            //    bird.Bottom >= this.ClientSize.Height - 40)
+            //{
+            //    gameTimer.Stop();            // Dừng game
+            //    panelEndgame.Visible = true; // Hiện panel endgame
+            //    picBoxEndgame.Visible = true; // Hiện hình ảnh endgame
+            //    labelTotalScore.Text = "Score : " + score; // Hiện điểm số cuối cùng
 
+            //}
+            for (int i = 0; i < numPipes; i++)
+            {
+                Rectangle birdRect = bird.Bounds;
+                Rectangle pipeTop = new Rectangle(pipeXs[i], 0, pipeWidth, pipeHeights[i]);
+                Rectangle pipeBottom = new Rectangle(pipeXs[i], pipeHeights[i] + gap - 65, pipeWidth, this.Height - pipeHeights[i] - gap);
+
+                if (birdRect.IntersectsWith(pipeTop) || birdRect.IntersectsWith(pipeBottom) ||
+                    bird.Bottom >= this.ClientSize.Height - 40)
+                {
+                    EndGame();
+                    return;
+                }
             }
+
 
             // Cập nhật điểm số
             scoreText.Text = "" + score;
@@ -179,6 +189,17 @@ namespace Flappybird
             // Yêu cầu vẽ lại (gọi OnPaint)
             this.Invalidate();
         }
+
+        // ====== HÀM ENDGAME ======
+
+        private void EndGame()
+        {
+            gameTimer.Stop();
+            panelEndgame.Visible = true;
+            picBoxEndgame.Visible = true;
+            labelTotalScore.Text = "Score : " + score;
+        }
+
 
         // ======== VẼ LẠI MÀN HÌNH ========
         protected override void OnPaint(PaintEventArgs e)
@@ -191,15 +212,17 @@ namespace Flappybird
                 g.DrawImage(Properties.Resources.pipeUp, new Rectangle(pipeXs[i], 0, pipeWidth, pipeHeights[i]));
 
                 int bottomY = pipeHeights[i] + gap;
-                int bottomHeight = this.Height - bottomY;
+            int bottomHeight = this.Height - bottomY;
                 g.DrawImage(Properties.Resources.pipeDown, new Rectangle(pipeXs[i], bottomY - 80, pipeWidth, bottomHeight));
             }
 
+            // Vẽ chim xoay theo birdAngle
             Bitmap birdImg = Properties.Resources.bird;
             Bitmap rotatedBird = RotateImage(birdImg, birdAngle);
             g.DrawImage(rotatedBird, bird.Left, bird.Top, bird.Width, bird.Height);
             rotatedBird.Dispose();
         }
+
 
         // ======== XOAY HÌNH ẢNH CHIM THEO GÓC ========
         private Bitmap RotateImage(Bitmap source, float angle)
