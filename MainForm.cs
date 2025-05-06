@@ -1,11 +1,7 @@
 ﻿// Thư viện cơ bản trong C#
-using System;
-using System.Drawing;              // Dùng để xử lý hình ảnh, màu sắc, vẽ đồ họa
-using System.Windows.Forms;        // Dùng để xây dựng giao diện người dùng trên Windows
-
 namespace Flappybird
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         // ======== BIẾN CHIM ========
         float birdAngle = 0f;        // Góc quay của chim, mặc định là 0
@@ -31,13 +27,19 @@ namespace Flappybird
         int floatingDir = 1;         // Hướng dao động (lên / xuống)
         int baseY;                   // Vị trí y ban đầu của chim (làm mốc dao động)
 
+        // ======== BIẾN TÍNH ĐIỂM  ========
+        bool scored = false;
+
+
         Random rand = new Random();  // Dùng để tạo chiều cao ngẫu nhiên cho ống
 
         // ======== KHỞI TẠO FORM ========
-        public Form1()
+        public Main()
         {
             InitializeComponent();        // Khởi tạo các control từ Designer
             this.DoubleBuffered = true;   // Tránh nhấp nháy khi vẽ đồ họa
+            this.FormClosing += Main_FormClosing;
+
         }
 
         // ======== SỰ KIỆN KHI FORM LOAD ========
@@ -63,6 +65,7 @@ namespace Flappybird
             if (!isGameStarted)
             {
                 // Bắt đầu chơi
+                labelStart.Visible = false; // ẩn label thông báo
                 isGameStarted = true;
                 velocityY = jump;
                 birdAngle = minAngle;
@@ -102,12 +105,19 @@ namespace Flappybird
             if (birdAngle < maxAngle)
                 birdAngle += 2f;
 
-            // Nếu ống ra khỏi màn hình => reset lại ống
+            // Kiểm tra và tăng điểm 1 lần duy nhất:
+            if (!scored && bird.Left > pipeX + pipeWidth)
+            {
+                score++;
+                scored = true;
+            }
+
+            // Reset lại khi ống mới xuất hiện (khi pipeX về cuối màn hình):
             if (pipeX < -pipeWidth)
             {
                 pipeX = this.Width;
                 pipeHeight = rand.Next(100, this.Height - gap - 100);
-                score++; // Tăng điểm
+                scored = false; // chuẩn bị cho ống tiếp theo
             }
 
             // ====== KIỂM TRA VA CHẠM ======
@@ -120,11 +130,14 @@ namespace Flappybird
                 bird.Bottom >= this.ClientSize.Height - 40)
             {
                 gameTimer.Stop();            // Dừng game
-                btnRestart.Visible = true;   // Hiện nút Restart
+                panelEndgame.Visible = true; // Hiện panel endgame
+                picBoxEndgame.Visible = true; // Hiện hình ảnh endgame
+                labelTotalScore.Text = "Score : " + score; // Hiện điểm số cuối cùng
+
             }
 
             // Cập nhật điểm số
-            scoreText.Text = "Score: " + score;
+            scoreText.Text = "" + score;
 
             // Yêu cầu vẽ lại (gọi OnPaint)
             this.Invalidate();
@@ -176,6 +189,7 @@ namespace Flappybird
         private void RestartGame()
         {
             isGameStarted = false;
+            labelStart.Visible = true; // bật label thông báo
 
             bird.Top = this.Height / 2;
             birdY = bird.Top;
@@ -185,17 +199,32 @@ namespace Flappybird
             pipeX = this.Width;
             pipeHeight = rand.Next(100, this.Height - gap - 100);
             score = 0;
-            scoreText.Text = "Score: 0";
+            scoreText.Text = "0";
 
             birdAngle = 0f;
             gameTimer.Start();
         }
 
         // ======== SỰ KIỆN KHI NHẤN NÚT RESTART ========
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRestart_Click(object sender, EventArgs e)
         {
-            RestartGame();               // Gọi lại khởi tạo
-            btnRestart.Visible = false; // Ẩn nút
+            RestartGame();
+            panelEndgame.Visible = false; // ẩn panel endgame
+            picBoxEndgame.Visible = false; // ẩn hình ảnh endgame
+        }
+
+
+        // ======== SỰ KIỆN KHI NHẤN NÚT EXIT -> HOME ========
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Close();
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // ⛔ Đóng toàn bộ app nếu người dùng nhấn X
         }
     }
 }

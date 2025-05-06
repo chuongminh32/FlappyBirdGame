@@ -1,11 +1,14 @@
 ﻿//namespace FlappyBirdWinForms
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
 namespace Flappybird
 {
-    partial class Form1
+    partial class Main
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.Label scoreText;
 
         protected override void Dispose(bool disposing)
         {
@@ -17,48 +20,29 @@ namespace Flappybird
         {
             components = new System.ComponentModel.Container();
             gameTimer = new System.Windows.Forms.Timer(components);
-            scoreText = new Label();
-            btnRestart = new Button();
             bird = new PictureBox();
             pipeBottom = new PictureBox();
             pictureBox1 = new PictureBox();
-            btnStart = new Button();
+            labelStart = new Label();
+            panelEndgame = new Panel();
+            labelTotalScore = new Label();
+            label2 = new Label();
             btnExit = new Button();
+            btnRestart = new Button();
+            scoreText = new Label();
+            picBoxEndgame = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)bird).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeBottom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelEndgame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxEndgame).BeginInit();
             SuspendLayout();
             // 
             // gameTimer
             // 
             gameTimer.Interval = 20;
             gameTimer.Tick += gameTimer_Tick;
-            // 
-            // scoreText
-            // 
-            scoreText.AutoSize = true;
-            scoreText.Font = new Font("Arial", 18F, FontStyle.Bold);
-            scoreText.ForeColor = Color.White;
-            scoreText.Location = new Point(6, 9);
-            scoreText.Name = "scoreText";
-            scoreText.Size = new Size(134, 35);
-            scoreText.TabIndex = 0;
-            scoreText.Text = "Score: 0";
-            // 
-            // btnRestart
-            // 
-            btnRestart.BackColor = Color.Transparent;
-            btnRestart.FlatStyle = FlatStyle.Flat;
-            btnRestart.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRestart.ForeColor = Color.OrangeRed;
-            btnRestart.Location = new Point(338, 218);
-            btnRestart.Name = "btnRestart";
-            btnRestart.Size = new Size(112, 40);
-            btnRestart.TabIndex = 2;
-            btnRestart.Text = "RESTART";
-            btnRestart.UseVisualStyleBackColor = false;
-            btnRestart.Visible = false;
-            btnRestart.Click += button1_Click;
             // 
             // bird
             // 
@@ -95,63 +79,157 @@ namespace Flappybird
             pictureBox1.TabStop = false;
             pictureBox1.Visible = false;
             // 
-            // btnStart
+            // labelStart
             // 
-            btnStart.BackColor = Color.Transparent;
-            btnStart.FlatStyle = FlatStyle.Flat;
-            btnStart.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnStart.ForeColor = Color.OrangeRed;
-            btnStart.Location = new Point(338, 157);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(112, 40);
-            btnStart.TabIndex = 6;
-            btnStart.Text = "START";
-            btnStart.UseVisualStyleBackColor = false;
-            btnStart.Visible = false;
+            labelStart.AutoSize = true;
+            labelStart.BackColor = Color.Transparent;
+            labelStart.Font = new System.Drawing.Font("Segoe Script", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelStart.ForeColor = Color.OrangeRed;
+            labelStart.Location = new Point(273, 185);
+            labelStart.Name = "labelStart";
+            labelStart.Size = new Size(214, 50);
+            labelStart.TabIndex = 13;
+            labelStart.Text = "Tap to start ";
+            // 
+            // panelEndgame
+            // 
+            panelEndgame.BackColor = Color.PeachPuff;
+            panelEndgame.Controls.Add(labelTotalScore);
+            panelEndgame.Controls.Add(label2);
+            panelEndgame.Controls.Add(btnExit);
+            panelEndgame.Controls.Add(btnRestart);
+            panelEndgame.Location = new Point(185, 231);
+            panelEndgame.Name = "panelEndgame";
+            panelEndgame.Size = new Size(454, 149);
+            panelEndgame.TabIndex = 14;
+            panelEndgame.Visible = false;
+            // 
+            // labelTotalScore
+            // 
+            labelTotalScore.AutoSize = true;
+            labelTotalScore.BackColor = Color.Transparent;
+            labelTotalScore.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTotalScore.ForeColor = Color.OrangeRed;
+            labelTotalScore.Location = new Point(195, 22);
+            labelTotalScore.Name = "labelTotalScore";
+            labelTotalScore.Size = new Size(119, 40);
+            labelTotalScore.TabIndex = 19;
+            labelTotalScore.Text = "Score : ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.OrangeRed;
+            label2.Location = new Point(195, 86);
+            label2.Name = "label2";
+            label2.Size = new Size(139, 40);
+            label2.TabIndex = 16;
+            label2.Text = "Record : ";
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Transparent;
+            btnExit.BackColor = Color.Tomato;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.ForeColor = Color.OrangeRed;
-            btnExit.Location = new Point(338, 279);
+            btnExit.Font = new System.Drawing.Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = Color.Snow;
+            btnExit.Location = new Point(37, 22);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(112, 40);
-            btnExit.TabIndex = 7;
+            btnExit.Size = new Size(126, 40);
+            btnExit.TabIndex = 13;
             btnExit.Text = "EXIT";
             btnExit.UseVisualStyleBackColor = false;
-            btnExit.Visible = false;
+            btnExit.Click += btnExit_Click;
             // 
-            // Form1
+            // btnRestart
+            // 
+            btnRestart.BackColor = Color.Tomato;
+            btnRestart.FlatStyle = FlatStyle.Flat;
+            btnRestart.Font = new System.Drawing.Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRestart.ForeColor = Color.Snow;
+            btnRestart.Location = new Point(37, 88);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(126, 40);
+            btnRestart.TabIndex = 14;
+            btnRestart.Text = "RESTART";
+            btnRestart.UseVisualStyleBackColor = false;
+            btnRestart.Click += btnRestart_Click;
+            // 
+            // scoreText
+            // 
+            scoreText.AutoSize = true;
+            scoreText.BackColor = Color.Transparent;
+            scoreText.Font = new System.Drawing.Font("Segoe UI Variable Display", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            scoreText.ForeColor = Color.Tomato;
+            scoreText.Location = new Point(370, 34);
+            scoreText.Name = "scoreText";
+            scoreText.Size = new Size(54, 63);
+            scoreText.TabIndex = 17;
+            scoreText.Text = "0";
+            // 
+            // picBoxEndgame
+            // 
+            picBoxEndgame.BackColor = Color.Transparent;
+            picBoxEndgame.Image = Properties.Resources.game_over1;
+            picBoxEndgame.Location = new Point(212, 142);
+            picBoxEndgame.Name = "picBoxEndgame";
+            picBoxEndgame.Size = new Size(411, 83);
+            picBoxEndgame.TabIndex = 15;
+            picBoxEndgame.TabStop = false;
+            picBoxEndgame.Visible = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.OrangeRed;
+            label1.Location = new Point(327, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 40);
+            label1.TabIndex = 18;
+            // 
+            // Main
             // 
             BackColor = Color.SkyBlue;
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 500);
-            Controls.Add(btnExit);
-            Controls.Add(btnStart);
+            Controls.Add(scoreText);
+            Controls.Add(label1);
+            Controls.Add(picBoxEndgame);
+            Controls.Add(panelEndgame);
+            Controls.Add(labelStart);
             Controls.Add(pictureBox1);
             Controls.Add(pipeBottom);
             Controls.Add(bird);
-            Controls.Add(btnRestart);
-            Controls.Add(scoreText);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "Form1";
+            Name = "Main";
             Text = "Flappy Bird";
+            FormClosing += Main_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)bird).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipeBottom).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelEndgame.ResumeLayout(false);
+            panelEndgame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxEndgame).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-        private Button btnRestart;
         private PictureBox bird;
         private PictureBox pipeBottom;
         private PictureBox pictureBox1;
-        private Button btnStart;
+        private Label labelStart;
+        private Panel panelEndgame;
+        private PictureBox picBoxEndgame;
         private Button btnExit;
+        private Button btnRestart;
+        private Label label2;
+        private Label scoreText;
+        private Label label1;
+        private Label labelTotalScore;
     }
 }

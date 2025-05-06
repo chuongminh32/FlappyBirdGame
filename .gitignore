@@ -1,13 +1,18 @@
-﻿# Ignore Visual Studio files
+﻿# Thư mục Visual Studio
 .vs/
-.vscode/
-obj/
-bin/
 *.user
 *.suo
-*.userosscache
-*.sln.docstates
 
-# Ignore IDE specific files
-*.log
-*.swp
+# File build
+bin/
+obj/
+
+# Tạm thời
+*.cache
+*.pdb
+*.dll
+*.exe
+
+# Thư mục ref và refint (tạm thời)
+obj/**/ref/
+obj/**/refint/
