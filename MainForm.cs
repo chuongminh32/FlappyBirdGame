@@ -1,164 +1,201 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿// Thư viện cơ bản trong C#
+using System;
+using System.Drawing;              // Dùng để xử lý hình ảnh, màu sắc, vẽ đồ họa
+using System.Windows.Forms;        // Dùng để xây dựng giao diện người dùng trên Windows
 
 namespace Flappybird
 {
     public partial class Form1 : Form
     {
-        // xoay đâù chim theo hướng bay 
-        float birdAngle = 0f;           // góc quay của chim
-        float maxAngle = 90f;           // góc xoay tối đa khi rơi
-        float minAngle = -25f;          // góc xoay khi bay lên
+        // ======== BIẾN CHIM ========
+        float birdAngle = 0f;        // Góc quay của chim, mặc định là 0
+        float maxAngle = 90f;        // Góc tối đa khi chim rơi xuống
+        float minAngle = -25f;       // Góc khi chim nhảy lên (ngẩng đầu)
 
+        int gravity = 1;             // Trọng lực, làm chim rơi xuống dần
+        int jump = -12;              // Vận tốc nhảy lên khi click
+        int velocityY = 0;           // Vận tốc rơi của chim theo trục Y
+        int birdY;                   // Tọa độ Y hiện tại của chim
 
-        int gravity = 1;
-        int jump = -12;
-        int velocityY = 0;
-        int birdY;
+        // ======== BIẾN ỐNG ========
+        int pipeX;                   // Tọa độ X của ống (di chuyển từ phải sang trái)
+        int pipeWidth = 60;          // Chiều rộng của ống
+        int pipeHeight;             // Chiều cao của ống trên
+        int gap = 200;              // Khoảng cách giữa ống trên và dưới
+        int pipeSpeed = 6;          // Tốc độ di chuyển ống
+        int score = 0;              // Điểm số của người chơi
 
-        int pipeX;
-        int pipeWidth = 60;
-        int pipeHeight;
-        int gap = 200;
-        int pipeSpeed = 6;
-        int score = 0;
+        // ======== BIẾN LƠ LỬNG BAN ĐẦU ========
+        bool isGameStarted = false;  // Game đã bắt đầu chưa
+        int floatingOffset = 2;      // Biên độ dao động của chim khi chưa chơi
+        int floatingDir = 1;         // Hướng dao động (lên / xuống)
+        int baseY;                   // Vị trí y ban đầu của chim (làm mốc dao động)
 
+        Random rand = new Random();  // Dùng để tạo chiều cao ngẫu nhiên cho ống
 
-
-        Random rand = new Random();
-
+        // ======== KHỞI TẠO FORM ========
         public Form1()
         {
-            InitializeComponent();
-            this.DoubleBuffered = true; // Giảm flicker khi vẽ pipe
+            InitializeComponent();        // Khởi tạo các control từ Designer
+            this.DoubleBuffered = true;   // Tránh nhấp nháy khi vẽ đồ họa
         }
 
+        // ======== SỰ KIỆN KHI FORM LOAD ========
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.background;
+            this.BackgroundImage = Properties.Resources.background; // Nền của trò chơi
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
+            // Thiết lập thông số ban đầu
             birdY = bird.Top;
-            pipeX = this.Width;
-            pipeHeight = rand.Next(100, this.Height - gap - 100);
+            baseY = bird.Top;
+            pipeX = this.Width;   // Ống khởi tạo nằm ngoài màn hình bên phải
+            pipeHeight = rand.Next(100, this.Height - gap - 100); // Chiều cao ngẫu nhiên
             velocityY = 0;
 
-            gameTimer.Start();
-            this.MouseClick += Form1_MouseClick;
+            gameTimer.Start();              // Bắt đầu timer
+            this.MouseClick += Form1_MouseClick; // Gắn sự kiện click chuột
         }
 
+        // ======== CLICK CHUỘT => CHIM BAY ========
         private void Form1_MouseClick(object? sender, MouseEventArgs e)
         {
+            if (!isGameStarted)
+            {
+                // Bắt đầu chơi
+                isGameStarted = true;
+                velocityY = jump;
+                birdAngle = minAngle;
+                return;
+            }
+
+            // Các lần click sau: chim nhảy lên
+            velocityY = jump;
             birdAngle = minAngle;
-            velocityY = jump; // reset vận tốc Y để chim bay lên
         }
 
+        // ======== VÒNG LẶP GAME ========
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            // chim rơi
+            // Nếu chưa bắt đầu chơi => chim dao động lơ lửng
+            if (!isGameStarted)
+            {
+                birdY += floatingOffset * floatingDir;
+
+                if (birdY > baseY + 10 || birdY < baseY - 10)
+                    floatingDir *= -1;
+
+                bird.Top = birdY;
+                this.Invalidate(); // Gọi OnPaint để vẽ lại
+                return;
+            }
+
+            // Chim rơi theo trọng lực
             velocityY += gravity;
             birdY += velocityY;
             bird.Top = birdY;
 
-            // cột di chuyển
+            // Ống di chuyển sang trái
             pipeX -= pipeSpeed;
 
-
-            // Góc xoay dần dần tăng về maxAngle
+            // Góc quay chim tăng dần khi rơi
             if (birdAngle < maxAngle)
                 birdAngle += 2f;
 
-            // cột đi qua trái thì reset lại
+            // Nếu ống ra khỏi màn hình => reset lại ống
             if (pipeX < -pipeWidth)
             {
                 pipeX = this.Width;
                 pipeHeight = rand.Next(100, this.Height - gap - 100);
-                score++;
+                score++; // Tăng điểm
             }
 
-            // kiểm tra va chạm
+            // ====== KIỂM TRA VA CHẠM ======
             Rectangle birdRect = bird.Bounds;
             Rectangle pipeTop = new Rectangle(pipeX, 0, pipeWidth, pipeHeight);
-            Rectangle pipeBottom = new Rectangle(pipeX, pipeHeight + gap - 40 , pipeWidth, this.Height - pipeHeight - gap);
+            Rectangle pipeBottom = new Rectangle(pipeX, pipeHeight + gap - 40, pipeWidth, this.Height - pipeHeight - gap);
 
+            // Nếu chim đụng ống hoặc chạm đất
             if (birdRect.IntersectsWith(pipeTop) || birdRect.IntersectsWith(pipeBottom) ||
                 bird.Bottom >= this.ClientSize.Height - 40)
             {
-                gameTimer.Stop();
-                btnRestart.Visible = true;
+                gameTimer.Stop();            // Dừng game
+                btnRestart.Visible = true;   // Hiện nút Restart
             }
 
-            // cập nhật điểm và vẽ lại pipe
+            // Cập nhật điểm số
             scoreText.Text = "Score: " + score;
+
+            // Yêu cầu vẽ lại (gọi OnPaint)
             this.Invalidate();
         }
 
-
+        // ======== VẼ LẠI MÀN HÌNH ========
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
 
-            // Ống trên (hướng xuống)
+            // Vẽ ống trên (ngược)
             Image pipeTop = Properties.Resources.pipeUp;
             g.DrawImage(pipeTop, new Rectangle(pipeX, 0, pipeWidth, pipeHeight));
 
-            // Ống dưới (hướng lên)
+            // Vẽ ống dưới
             Image pipeBottom = Properties.Resources.pipeDown;
             int bottomY = pipeHeight + gap;
             int bottomHeight = this.Height - bottomY;
-            g.DrawImage(pipeBottom, new Rectangle(pipeX, bottomY - 80 , pipeWidth, bottomHeight));
+            g.DrawImage(pipeBottom, new Rectangle(pipeX, bottomY - 80, pipeWidth, bottomHeight));
 
-            // Vẽ chim xoay
+            // Vẽ chim xoay theo birdAngle
             Bitmap birdImg = Properties.Resources.bird;
             Bitmap rotatedBird = RotateImage(birdImg, birdAngle);
             g.DrawImage(rotatedBird, bird.Left, bird.Top, bird.Width, bird.Height);
 
-            // Giải phóng tài nguyên
-            rotatedBird.Dispose();
+            rotatedBird.Dispose(); // Giải phóng ảnh
         }
-        
+
+        // ======== XOAY HÌNH ẢNH CHIM THEO GÓC ========
         private Bitmap RotateImage(Bitmap source, float angle)
         {
-            // Tạo ảnh mới với kích thước đủ lớn để chứa ảnh xoay
             Bitmap rotated = new Bitmap(source.Width + 30, source.Height + 30);
-            rotated.MakeTransparent(); // đảm bảo nền trong suốt
+            rotated.MakeTransparent();
 
             using (Graphics g = Graphics.FromImage(rotated))
             {
-                // Di chuyển gốc tọa độ đến tâm ảnh
+                // Xoay quanh tâm ảnh
                 g.TranslateTransform(source.Width / 2f, source.Height / 2f);
-                // Xoay
                 g.RotateTransform(angle);
-                // Vẽ ảnh gốc, căn giữa
                 g.TranslateTransform(-source.Width / 2f, -source.Height / 2f);
                 g.DrawImage(source, 0, 0);
             }
+
             return rotated;
         }
 
-
+        // ======== HÀM RESET GAME ========
         private void RestartGame()
         {
+            isGameStarted = false;
+
             bird.Top = this.Height / 2;
             birdY = bird.Top;
+            baseY = birdY;
             velocityY = 0;
 
             pipeX = this.Width;
             pipeHeight = rand.Next(100, this.Height - gap - 100);
             score = 0;
-
             scoreText.Text = "Score: 0";
 
             birdAngle = 0f;
             gameTimer.Start();
         }
 
+        // ======== SỰ KIỆN KHI NHẤN NÚT RESTART ========
         private void button1_Click(object sender, EventArgs e)
         {
-            RestartGame();
-            btnRestart.Visible = false;
+            RestartGame();               // Gọi lại khởi tạo
+            btnRestart.Visible = false; // Ẩn nút
         }
     }
 }

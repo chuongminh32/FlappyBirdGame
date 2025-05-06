@@ -22,6 +22,8 @@ namespace Flappybird
             bird = new PictureBox();
             pipeBottom = new PictureBox();
             pictureBox1 = new PictureBox();
+            btnStart = new Button();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)bird).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeBottom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -62,7 +64,7 @@ namespace Flappybird
             // 
             bird.BackColor = Color.Transparent;
             bird.Image = Properties.Resources.bird1;
-            bird.Location = new Point(100, 100);
+            bird.Location = new Point(157, 185);
             bird.Name = "bird";
             bird.Size = new Size(40, 40);
             bird.TabIndex = 3;
@@ -93,12 +95,42 @@ namespace Flappybird
             pictureBox1.TabStop = false;
             pictureBox1.Visible = false;
             // 
+            // btnStart
+            // 
+            btnStart.BackColor = Color.Transparent;
+            btnStart.FlatStyle = FlatStyle.Flat;
+            btnStart.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = Color.OrangeRed;
+            btnStart.Location = new Point(338, 157);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(112, 40);
+            btnStart.TabIndex = 6;
+            btnStart.Text = "START";
+            btnStart.UseVisualStyleBackColor = false;
+            btnStart.Visible = false;
+            // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.Transparent;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = Color.OrangeRed;
+            btnExit.Location = new Point(338, 279);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(112, 40);
+            btnExit.TabIndex = 7;
+            btnExit.Text = "EXIT";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Visible = false;
+            // 
             // Form1
             // 
             BackColor = Color.SkyBlue;
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 500);
+            Controls.Add(btnExit);
+            Controls.Add(btnStart);
             Controls.Add(pictureBox1);
             Controls.Add(pipeBottom);
             Controls.Add(bird);
@@ -119,5 +151,7 @@ namespace Flappybird
         private PictureBox bird;
         private PictureBox pipeBottom;
         private PictureBox pictureBox1;
+        private Button btnStart;
+        private Button btnExit;
     }
 }
