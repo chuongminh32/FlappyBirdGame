@@ -21,6 +21,11 @@ namespace Flappybird
         int pipeSpeed = 6;          // Tốc độ di chuyển ống
         int score = 0;              // Điểm số của người chơi
 
+        int numPipes = 3;
+        int[] pipeXs;
+        int[] pipeHeights;
+        bool[] pipeScored;
+
         // ======== BIẾN LƠ LỬNG BAN ĐẦU ========
         bool isGameStarted = false;  // Game đã bắt đầu chưa
         int floatingOffset = 2;      // Biên độ dao động của chim khi chưa chơi
@@ -30,7 +35,7 @@ namespace Flappybird
         // ======== BIẾN TÍNH ĐIỂM  ========
         bool scored = false;
 
-
+     
         Random rand = new Random();  // Dùng để tạo chiều cao ngẫu nhiên cho ống
 
         // ======== KHỞI TẠO FORM ========
@@ -38,7 +43,7 @@ namespace Flappybird
         {
             InitializeComponent();        // Khởi tạo các control từ Designer
             this.DoubleBuffered = true;   // Tránh nhấp nháy khi vẽ đồ họa
-            this.FormClosing += Main_FormClosing;
+            this.FormClosing += Main_FormClosing; // Đăng ký sự kiện khi đóng form 
 
         }
 
@@ -47,6 +52,19 @@ namespace Flappybird
         {
             this.BackgroundImage = Properties.Resources.background; // Nền của trò chơi
             this.BackgroundImageLayout = ImageLayout.Stretch;
+
+            // Khởi tạo các ống khi Form Load
+            pipeXs = new int[numPipes];
+            pipeHeights = new int[numPipes];
+            pipeScored = new bool[numPipes];
+
+            for (int i = 0; i < numPipes; i++)
+            {
+                pipeXs[i] = this.Width + i * (this.Width / numPipes);
+                pipeHeights[i] = rand.Next(100, this.Height - gap - 100);
+                pipeScored[i] = false;
+            }
+                
 
             // Thiết lập thông số ban đầu
             birdY = bird.Top;
@@ -98,8 +116,27 @@ namespace Flappybird
             birdY += velocityY;
             bird.Top = birdY;
 
-            // Ống di chuyển sang trái
-            pipeX -= pipeSpeed;
+            // Cập nhật ống
+            for (int i = 0; i < numPipes; i++)
+            {
+                pipeXs[i] -= pipeSpeed;
+
+                // Kiểm tra và cộng điểm
+                if (!pipeScored[i] && bird.Left > pipeXs[i] + pipeWidth)
+                {
+                    score++;
+                    pipeScored[i] = true;
+                }
+
+                // Reset ống ra lại bên phải
+                if (pipeXs[i] < -pipeWidth)
+                {
+                    pipeXs[i] = this.Width;
+                    pipeHeights[i] = rand.Next(100, this.Height - gap - 100);
+                    pipeScored[i] = false;
+                }
+            }
+
 
             // Góc quay chim tăng dần khi rơi
             if (birdAngle < maxAngle)
@@ -149,22 +186,19 @@ namespace Flappybird
             base.OnPaint(e);
             Graphics g = e.Graphics;
 
-            // Vẽ ống trên (ngược)
-            Image pipeTop = Properties.Resources.pipeUp;
-            g.DrawImage(pipeTop, new Rectangle(pipeX, 0, pipeWidth, pipeHeight));
+            for (int i = 0; i < numPipes; i++)
+            {
+                g.DrawImage(Properties.Resources.pipeUp, new Rectangle(pipeXs[i], 0, pipeWidth, pipeHeights[i]));
 
-            // Vẽ ống dưới
-            Image pipeBottom = Properties.Resources.pipeDown;
-            int bottomY = pipeHeight + gap;
-            int bottomHeight = this.Height - bottomY;
-            g.DrawImage(pipeBottom, new Rectangle(pipeX, bottomY - 80, pipeWidth, bottomHeight));
+                int bottomY = pipeHeights[i] + gap;
+                int bottomHeight = this.Height - bottomY;
+                g.DrawImage(Properties.Resources.pipeDown, new Rectangle(pipeXs[i], bottomY - 80, pipeWidth, bottomHeight));
+            }
 
-            // Vẽ chim xoay theo birdAngle
             Bitmap birdImg = Properties.Resources.bird;
             Bitmap rotatedBird = RotateImage(birdImg, birdAngle);
             g.DrawImage(rotatedBird, bird.Left, bird.Top, bird.Width, bird.Height);
-
-            rotatedBird.Dispose(); // Giải phóng ảnh
+            rotatedBird.Dispose();
         }
 
         // ======== XOAY HÌNH ẢNH CHIM THEO GÓC ========
@@ -196,8 +230,14 @@ namespace Flappybird
             baseY = birdY;
             velocityY = 0;
 
-            pipeX = this.Width;
-            pipeHeight = rand.Next(100, this.Height - gap - 100);
+            // Xóa hết các cột ống hiện tại và tạo mới
+            for (int i = 0; i < numPipes; i++)
+            {
+                pipeXs[i] = this.Width + i * (this.Width / numPipes); // Đặt lại vị trí của các ống ngoài màn hình
+                pipeHeights[i] = rand.Next(100, this.Height - gap - 100); // Chiều cao ngẫu nhiên của ống
+                pipeScored[i] = false; // Đặt lại trạng thái tính điểm cho từng ống
+            }
+
             score = 0;
             scoreText.Text = "0";
 
@@ -224,7 +264,7 @@ namespace Flappybird
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit(); // ⛔ Đóng toàn bộ app nếu người dùng nhấn X
+            Application.Exit(); //  Đóng toàn bộ app nếu người dùng nhấn X
         }
     }
 }
