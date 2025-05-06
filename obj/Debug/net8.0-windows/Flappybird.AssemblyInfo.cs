@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Flappybird")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48beb8038be35fab976e5ac0da628c1368e786c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Flappybird")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Flappybird")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

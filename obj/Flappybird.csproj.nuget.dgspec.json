@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "G:\\NamII_HK2\\LTWD\\Flappybird\\Flappybird.csproj": {}
+    "G:\\NamII_HK2\\LTWD\\FlappyBird\\Flappybird.csproj": {}
   },
   "projects": {
-    "G:\\NamII_HK2\\LTWD\\Flappybird\\Flappybird.csproj": {
+    "G:\\NamII_HK2\\LTWD\\FlappyBird\\Flappybird.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\NamII_HK2\\LTWD\\Flappybird\\Flappybird.csproj",
+        "projectUniqueName": "G:\\NamII_HK2\\LTWD\\FlappyBird\\Flappybird.csproj",
         "projectName": "Flappybird",
-        "projectPath": "G:\\NamII_HK2\\LTWD\\Flappybird\\Flappybird.csproj",
+        "projectPath": "G:\\NamII_HK2\\LTWD\\FlappyBird\\Flappybird.csproj",
         "packagesPath": "C:\\Users\\THINKPAD\\.nuget\\packages\\",
         "outputPath": "G:\\NamII_HK2\\LTWD\\Flappybird\\obj\\",
         "projectStyle": "PackageReference",
