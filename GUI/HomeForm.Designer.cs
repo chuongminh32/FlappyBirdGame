@@ -30,7 +30,7 @@
         {
             pictureBox1 = new PictureBox();
             txtName = new Label();
-            txtUsername = new TextBox();
+            txtPlayerName = new TextBox();
             btnRecord = new Button();
             btnStart = new Button();
             btnExit = new Button();
@@ -59,12 +59,16 @@
             txtName.TabIndex = 12;
             txtName.Text = "Name:";
             // 
-            // txtUsername
+            // txtPlayerName
             // 
-            txtUsername.Location = new Point(323, 234);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(279, 27);
-            txtUsername.TabIndex = 13;
+            txtPlayerName.BackColor = Color.LightSalmon;
+            txtPlayerName.BorderStyle = BorderStyle.None;
+            txtPlayerName.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPlayerName.ForeColor = Color.SaddleBrown;
+            txtPlayerName.Location = new Point(327, 225);
+            txtPlayerName.Name = "txtPlayerName";
+            txtPlayerName.Size = new Size(279, 36);
+            txtPlayerName.TabIndex = 13;
             // 
             // btnRecord
             // 
@@ -78,6 +82,7 @@
             btnRecord.TabIndex = 11;
             btnRecord.Text = "RECORD";
             btnRecord.UseVisualStyleBackColor = false;
+            btnRecord.Click += btnRecord_Click;
             // 
             // btnStart
             // 
@@ -116,11 +121,12 @@
             Controls.Add(btnExit);
             Controls.Add(btnRecord);
             Controls.Add(btnStart);
-            Controls.Add(txtUsername);
+            Controls.Add(txtPlayerName);
             Controls.Add(txtName);
             Controls.Add(pictureBox1);
             Name = "Home";
             Text = "Form2";
+            FormClosing += Home_FormClosing;
             Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -131,7 +137,7 @@
 
         private PictureBox pictureBox1;
         private Label txtName;
-        private TextBox txtUsername;
+        private TextBox txtPlayerName;
         private Button btnRecord;
         private Button btnStart;
         private Button btnExit;

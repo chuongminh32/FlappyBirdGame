@@ -36,3 +36,11 @@ G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\ref\Flappybird.dll
 G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\Flappybird.Home.resources
 G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\Flappybird.Main.resources
 G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\Flappybird.RecordForm.resources
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+G:\NamII_HK2\LTWD\FlappyBird\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\Flappybird.csproj.AssemblyReference.cache
+G:\NamII_HK2\LTWD\FlappyBird\obj\Debug\net8.0-windows\Flappybird.csproj.Up2Date

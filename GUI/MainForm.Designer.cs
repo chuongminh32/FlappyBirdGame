@@ -26,12 +26,13 @@ namespace Flappybird
             labelStart = new Label();
             panelEndgame = new Panel();
             labelTotalScore = new Label();
-            label2 = new Label();
+            labelHighestScore = new Label();
             btnExit = new Button();
             btnRestart = new Button();
             scoreText = new Label();
             picBoxEndgame = new PictureBox();
             label1 = new Label();
+            name = new Label();
             ((System.ComponentModel.ISupportInitialize)bird).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeBottom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -95,7 +96,7 @@ namespace Flappybird
             // 
             panelEndgame.BackColor = Color.Moccasin;
             panelEndgame.Controls.Add(labelTotalScore);
-            panelEndgame.Controls.Add(label2);
+            panelEndgame.Controls.Add(labelHighestScore);
             panelEndgame.Controls.Add(btnExit);
             panelEndgame.Controls.Add(btnRestart);
             panelEndgame.Location = new Point(234, 238);
@@ -116,17 +117,17 @@ namespace Flappybird
             labelTotalScore.TabIndex = 19;
             labelTotalScore.Text = "Score : ";
             // 
-            // label2
+            // labelHighestScore
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.OrangeRed;
-            label2.Location = new Point(195, 86);
-            label2.Name = "label2";
-            label2.Size = new Size(139, 40);
-            label2.TabIndex = 16;
-            label2.Text = "Record : ";
+            labelHighestScore.AutoSize = true;
+            labelHighestScore.BackColor = Color.Transparent;
+            labelHighestScore.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelHighestScore.ForeColor = Color.OrangeRed;
+            labelHighestScore.Location = new Point(195, 86);
+            labelHighestScore.Name = "labelHighestScore";
+            labelHighestScore.Size = new Size(139, 40);
+            labelHighestScore.TabIndex = 16;
+            labelHighestScore.Text = "Record : ";
             // 
             // btnExit
             // 
@@ -190,12 +191,25 @@ namespace Flappybird
             label1.Size = new Size(0, 40);
             label1.TabIndex = 18;
             // 
+            // name
+            // 
+            name.AutoSize = true;
+            name.BackColor = Color.Transparent;
+            name.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            name.ForeColor = Color.Tomato;
+            name.Location = new Point(12, 9);
+            name.Name = "name";
+            name.Size = new Size(124, 40);
+            name.TabIndex = 19;
+            name.Text = "Player: ";
+            // 
             // Main
             // 
             BackColor = Color.SkyBlue;
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 500);
+            Controls.Add(name);
             Controls.Add(scoreText);
             Controls.Add(label1);
             Controls.Add(picBoxEndgame);
@@ -227,9 +241,10 @@ namespace Flappybird
         private PictureBox picBoxEndgame;
         private Button btnExit;
         private Button btnRestart;
-        private Label label2;
+        private Label labelHighestScore;
         private Label scoreText;
         private Label label1;
         private Label labelTotalScore;
+        private Label name;
     }
 }

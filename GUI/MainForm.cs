@@ -1,4 +1,6 @@
 ﻿// Thư viện cơ bản trong C#
+using Flappybird.DB;
+
 namespace Flappybird
 {
     public partial class Main : Form
@@ -37,6 +39,10 @@ namespace Flappybird
 
      
         Random rand = new Random();  // Dùng để tạo chiều cao ngẫu nhiên cho ống
+        string playerName; // Tên người chơi
+        int bestScore; // Điểm cao nhất của người chơi
+        DBHelper dBHelper = new DBHelper(); // Khởi tạo đối tượng DBHelper
+
 
         // ======== KHỞI TẠO FORM ========
         public Main()
@@ -44,12 +50,20 @@ namespace Flappybird
             InitializeComponent();        // Khởi tạo các control từ Designer
             this.DoubleBuffered = true;   // Tránh nhấp nháy khi vẽ đồ họa
             this.FormClosing += Main_FormClosing; // Đăng ký sự kiện khi đóng form 
-
+           
         }
 
         // ======== SỰ KIỆN KHI FORM LOAD ========
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            // Lấy tên người chơi từ PlayerRecord
+            playerName = PlayerRecord.PlayerName;
+
+            // Hiển thị tên người chơi trên giao diện 
+            name.Text = $"Player: {playerName}";
+
+
             this.BackgroundImage = Properties.Resources.background; // Nền của trò chơi
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -159,15 +173,6 @@ namespace Flappybird
 
             // ====== KIỂM TRA VA CHẠM ======
             // Nếu chim đụng ống hoặc chạm đất
-            //if (birdRect.IntersectsWith(pipeTop) || birdRect.IntersectsWith(pipeBottom) ||
-            //    bird.Bottom >= this.ClientSize.Height - 40)
-            //{
-            //    gameTimer.Stop();            // Dừng game
-            //    panelEndgame.Visible = true; // Hiện panel endgame
-            //    picBoxEndgame.Visible = true; // Hiện hình ảnh endgame
-            //    labelTotalScore.Text = "Score : " + score; // Hiện điểm số cuối cùng
-
-            //}
             for (int i = 0; i < numPipes; i++)
             {
                 Rectangle birdRect = bird.Bounds;
@@ -197,7 +202,22 @@ namespace Flappybird
             gameTimer.Stop();
             panelEndgame.Visible = true;
             picBoxEndgame.Visible = true;
-            labelTotalScore.Text = "Score : " + score;
+
+            labelTotalScore.Text = "Score: " + score;
+
+            bestScore = dBHelper.GetBestScore(playerName); // Lấy điểm cao nhất của người chơi từ DB    
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                dBHelper.SavePlayerRecord(playerName, bestScore);
+                labelHighestScore.Text = $"Record: {bestScore}";
+            }
+            else
+            {
+                labelHighestScore.Text = $"Record: {bestScore}";
+            }   
+
         }
 
 
@@ -282,7 +302,7 @@ namespace Flappybird
         {
             Home h = new Home();
             h.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
