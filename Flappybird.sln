@@ -5,8 +5,6 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flappybird", "Flappybird.csproj", "{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Human ComPany Management", "..\Human Company Management\Human ComPany Management.csproj", "{5CF2A9E6-BAC5-40A9-B107-7A39E8BE9C3A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CF2A9E6-BAC5-40A9-B107-7A39E8BE9C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CF2A9E6-BAC5-40A9-B107-7A39E8BE9C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CF2A9E6-BAC5-40A9-B107-7A39E8BE9C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CF2A9E6-BAC5-40A9-B107-7A39E8BE9C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

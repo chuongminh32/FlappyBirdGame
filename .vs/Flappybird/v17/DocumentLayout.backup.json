@@ -3,48 +3,12 @@
   "WorkspaceRootPath": "G:\\NamII_HK2\\LTWD\\Flappybird\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|G:\\NamII_HK2\\LTWD\\Flappybird\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:dbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\recordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:recordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\recordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:recordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|G:\\NamII_HK2\\LTWD\\Flappybird\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\playerrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:playerrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\recordform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:recordform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|g:\\namii_hk2\\ltwd\\flappybird\\gui\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B52FA4E-AF4C-44CC-BF09-47C20404D15A}|Flappybird.csproj|solutionrelative:gui\\homeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,148 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs",
-              "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs [Design]*",
-              "RelativeToolTip": "MainForm.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T17:06:06.866Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeForm.cs [Design]",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\HomeForm.cs",
-              "RelativeDocumentMoniker": "HomeForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\HomeForm.cs [Design]",
-              "RelativeToolTip": "HomeForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T17:06:04.923Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MainForm.resx",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\FlappyBird\\MainForm.resx",
-              "RelativeDocumentMoniker": "MainForm.resx",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\FlappyBird\\MainForm.resx",
-              "RelativeToolTip": "MainForm.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-05-07T04:43:55.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayerRecord.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\FlappyBird\\PlayerRecord.cs",
-              "RelativeDocumentMoniker": "PlayerRecord.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\FlappyBird\\PlayerRecord.cs",
-              "RelativeToolTip": "PlayerRecord.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:21:16.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DBHelper.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\FlappyBird\\DBHelper.cs",
-              "RelativeDocumentMoniker": "DBHelper.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\FlappyBird\\DBHelper.cs*",
-              "RelativeToolTip": "DBHelper.cs*",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwDoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:16:41.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\FlappyBird\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "MainForm.Designer.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\FlappyBird\\MainForm.Designer.cs",
-              "RelativeToolTip": "MainForm.Designer.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAAQwO8AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:12:52.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RecordForm.Designer.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\FlappyBird\\RecordForm.Designer.cs",
-              "RelativeDocumentMoniker": "RecordForm.Designer.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\FlappyBird\\RecordForm.Designer.cs",
-              "RelativeToolTip": "RecordForm.Designer.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAYwG8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T03:40:01.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RecordForm.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\RecordForm.cs",
-              "RelativeDocumentMoniker": "RecordForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\RecordForm.cs",
-              "RelativeToolTip": "RecordForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAIA3wB8AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T03:29:37.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RecordForm.cs [Design]",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\RecordForm.cs",
-              "RelativeDocumentMoniker": "RecordForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\RecordForm.cs [Design]",
-              "RelativeToolTip": "RecordForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T17:09:44.151Z",
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs",
-              "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\MainForm.cs*",
-              "RelativeToolTip": "MainForm.cs*",
-              "ViewState": "AgIAAG4AAAAAAAAAAAApwNgAAAAQAAAAAAAAAA==",
+              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\GUI\\MainForm.cs",
+              "RelativeDocumentMoniker": "GUI\\MainForm.cs",
+              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\GUI\\MainForm.cs",
+              "RelativeToolTip": "GUI\\MainForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T17:06:22.06Z",
+              "WhenOpened": "2025-05-07T07:35:50.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomeForm.cs",
-              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\HomeForm.cs",
-              "RelativeDocumentMoniker": "HomeForm.cs",
-              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\HomeForm.cs",
-              "RelativeToolTip": "HomeForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "HomeForm.cs [Design]",
+              "DocumentMoniker": "G:\\NamII_HK2\\LTWD\\Flappybird\\GUI\\HomeForm.cs",
+              "RelativeDocumentMoniker": "GUI\\HomeForm.cs",
+              "ToolTip": "G:\\NamII_HK2\\LTWD\\Flappybird\\GUI\\HomeForm.cs [Design]",
+              "RelativeToolTip": "GUI\\HomeForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T17:06:14.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T05:50:58.604Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
